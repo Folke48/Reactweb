@@ -4,11 +4,21 @@ import {Link} from "react-router-dom";
 const Print = () =>{
     console.log('Print');        
     let printContents = document.getElementById('printablediv').innerHTML + document.getElementById('printabledivTwo').innerHTML;
-    let originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-   document.body.innerHTML = originalContents; 
-  }
+    let printWindow = window.open('', '', 'height=500,width=800');
+    printWindow.document.write(printContents);
+    printWindow.document.close();
+
+  printWindow.onbeforeprint = () => {
+    console.log('Print dialog opened');
+  };
+
+  printWindow.onafterprint = () => {
+    console.log('Print dialog closed');
+    printWindow.close();
+  };
+
+  printWindow.print();
+}
 
 class Coureses extends React.Component{
     render() {
