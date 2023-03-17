@@ -1,13 +1,23 @@
 import React from "react";
 
-const Print = () =>{    
+const Print = () =>{
+    console.log('Print');        
     let printContents = document.getElementById('printablediv').innerHTML;
-    let originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-   document.body.innerHTML = originalContents; 
-   console.log('Print');  
-} 
+    let printWindow = window.open('', '', 'height=500,width=800');
+    printWindow.document.write(printContents);
+    printWindow.document.close();
+
+  printWindow.onbeforeprint = () => {
+    console.log('Print dialog opened');
+  };
+
+  printWindow.onafterprint = () => {
+    console.log('Print dialog closed');
+    printWindow.close();
+  };
+
+  printWindow.print();
+}
 
 class Contact extends React.Component{      
     render() {
@@ -45,9 +55,8 @@ class Contact extends React.Component{
                         <p> Fackebook: <a href="https://www.facebook.com/Gardsbacken">www.facebook.com/Gardsbacken</a> </p>
                         <p> Instagram: <a href="https://www.instagram.com/gardsbackenshundcenter/">www.instagram.com/gardsbackenshundcenter</a> </p>
                         <hr/>
-
-                        <button onClick={Print} className="print"><i className="fas fa-print"></i>Skriv ut kontaktinformation</button>
                     </div>
+                    <button onClick={Print} className="print"><i className="fas fa-print"></i>Skriv ut kontaktinformation</button>
                 </div>
 
                 <div className="side">
