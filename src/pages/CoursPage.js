@@ -5,7 +5,6 @@ const Print = () =>{
     console.log('Print');        
     let printContents = document.getElementById('printablediv').innerHTML;
     let printWindow = window.open('', '', 'height=500,width=800');
-    printWindow.document.write('<link rel="stylesheet" type="text/css" href="./App.css">');
     printWindow.document.write(printContents);
     printWindow.document.close();
 
@@ -90,7 +89,6 @@ class CoursPage extends React.Component{
                             I samtliga priser ingår moms på 25%, godkänd för F-skatt.</p>
 
                             <hr/>
-                            <button onClick={Print} className="print"><i className="fas fa-print"></i>Skriv ut kursinformation</button>
                             <div className="book_print">
                                 <p>Har du övriga frågor är du varmt välkommen att ta kontakt med oss! <br/>
                                     Telefon: <a href="tel: 070-6597199">070-6597199</a> eller <a href="tel: 0660-93199">0660-93199</a><br/>
@@ -98,6 +96,7 @@ class CoursPage extends React.Component{
                             </div>
                         </div>
                     </div>
+                    <button onClick={Print} className="print"><i className="fas fa-print"></i>Skriv ut kursinformation</button>
                 </div>
 
                 <div class="side">
