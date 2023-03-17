@@ -1,14 +1,25 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const Print = () =>{    
+const Print = () =>{
+    console.log('Print');        
     let printContents = document.getElementById('printablediv').innerHTML;
-    let originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-   document.body.innerHTML = originalContents; 
-   console.log('Print');  
-} 
+    let printWindow = window.open('', '', 'height=500,width=800');
+    printWindow.document.write('<link rel="stylesheet" type="text/css" href="./App.css">');
+    printWindow.document.write(printContents);
+    printWindow.document.close();
+
+  printWindow.onbeforeprint = () => {
+    console.log('Print dialog opened');
+  };
+
+  printWindow.onafterprint = () => {
+    console.log('Print dialog closed');
+    printWindow.close();
+  };
+
+  printWindow.print();
+}
 
 class CoursPage extends React.Component{
     render() {   
