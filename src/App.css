@@ -369,7 +369,7 @@ display: block;
 #mod {
   height: 400px;
   width: 400px;
-  background-color: red;
+  background-color: white;
   border-radius: 50%;
   display: inline-block;
   z-index: -1;
