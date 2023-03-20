@@ -376,7 +376,7 @@ display: block;
   bottom:-250px;
   right:1px;
   position: absolute;
-  
+  transition: width 7s, height 7s;
 }
 .paws {
   position: absolute;
