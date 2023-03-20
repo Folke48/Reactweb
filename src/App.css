@@ -365,6 +365,12 @@ display: block;
   position: relative;
   left: 0;
 }
+
+@keyframes example {
+  from {height: 400px; width: 400px;}
+  to {height: 5px; width: 50px;}
+}
+
 #mod {
   height: 400px;
   width: 400px;
@@ -372,9 +378,13 @@ display: block;
   border-radius: 50%;
   display: inline-block;
   z-index: -1;
-  bottom:-300px;
+  bottom:-250px;
   right:1px;
   position: absolute;
+  animation-name: example;
+  animation-duration: 8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 .paws {
   position: absolute;
