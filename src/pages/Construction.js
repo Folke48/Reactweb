@@ -15,7 +15,7 @@ class Construction extends React.Component {
 
                 <div class="side">
                     <div id="cover">
-                    <div> id="mod" </div>
+                    <div id="mod"> </div>
                     <img class="paws" src={Paws} alt="paw prints"/>
                     </div>
                 </div>
