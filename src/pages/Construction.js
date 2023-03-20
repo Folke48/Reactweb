@@ -3,7 +3,13 @@ import Paws from "./pawprints.jpg";
 
 class Construction extends React.Component {
     
-
+componentDidMount() {
+    const modDiv = document.getElementById("mod");
+    setTimeout(() => {
+      modDiv.style.width = "50px";
+      modDiv.style.height = "5px";
+    }, 50);
+  }
     
     render() {
         return(
